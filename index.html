@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Avatar Demo (Local)</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="stage">
+      <img id="bg" src="./assets/avatar.png" alt="avatar background" />
+      <canvas id="cv"></canvas>
+
+      <!-- Safari/iOS 対策：playsinline 推奨。最初は muted で自動再生→ボタンで音あり再生へ -->
+      <video id="faceVideo" src="./assets/face.mp4" playsinline muted loop></video>
+
+      <button id="playBtn" class="play">▶ 再生</button>
+    </div>
+
+    <div class="panel">
+      <div class="sec-title">貼り付け位置（背景に対して）</div>
+
+      <div class="row">
+        <label>X <input id="x" type="range" min="-400" max="400" value="0"></label>
+        <span id="xv"></span>
+      </div>
+      <div class="row">
+        <label>Y <input id="y" type="range" min="-400" max="400" value="0"></label>
+        <span id="yv"></span>
+      </div>
+      <div class="row">
+        <label>W <input id="w" type="range" min="80" max="980" value="340"></label>
+        <span id="wv"></span>
+      </div>
+      <div class="row">
+        <label>H <input id="h" type="range" min="80" max="980" value="400"></label>
+        <span id="hv"></span>
+      </div>
+      <div class="row">
+        <label>回転(deg) <input id="r" type="range" min="-45" max="45" value="0"></label>
+        <span id="rv"></span>
+      </div>
+
+      <div class="sec-title">動画の中身（ズーム/トリム）</div>
+
+      <div class="row">
+        <label>Zoom <input id="zoom" type="range" min="0.6" max="2.2" value="1.00" step="0.01"></label>
+        <span id="zoomv"></span>
+      </div>
+      <div class="row">
+        <label>PanX <input id="panx" type="range" min="-0.5" max="0.5" value="0.00" step="0.01"></label>
+        <span id="panxv"></span>
+      </div>
+      <div class="row">
+        <label>PanY <input id="pany" type="range" min="-0.5" max="0.5" value="0.00" step="0.01"></label>
+        <span id="panyv"></span>
+      </div>
+
+      <div class="sec-title">なじませ</div>
+
+      <div class="row">
+        <label>ぼかし(px) <input id="blur" type="range" min="0" max="20" value="2"></label>
+        <span id="blurv"></span>
+      </div>
+      <div class="row">
+        <label>透明度 <input id="alpha" type="range" min="0.70" max="1.00" value="0.96" step="0.01"></label>
+        <span id="alphav"></span>
+      </div>
+      <div class="row">
+        <label>彩度 <input id="sat" type="range" min="0.70" max="1.20" value="0.95" step="0.01"></label>
+        <span id="satv"></span>
+      </div>
+
+      <div class="hint">
+        手順おすすめ：①W/H → ②X/Y → ③Zoom → ④PanX/PanY → ⑤回転 → ⑥ぼかし/透明度/彩度
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
