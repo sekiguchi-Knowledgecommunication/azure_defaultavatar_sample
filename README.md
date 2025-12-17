@@ -1,0 +1,1 @@
+# azure_defaultavatar_sample
